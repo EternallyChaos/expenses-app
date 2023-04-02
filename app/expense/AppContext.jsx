@@ -2,6 +2,18 @@
 
 import { createContext, useContext, useReducer, useState } from "react";
 
+// const localStorageUpdate = (state) => {
+//   const [value, setValue] = useState(state);
+
+//   useEffect(() => {
+//     localStorage.setItem(key, JSON.stringify(value));
+//   }, [key, value]);
+//   useEffect(() => {
+//     const stored = localStorage.getItem(key);
+//     setValue(stored ? JSON.parse(stored) : state);
+//   }, [state, key]);
+// };
+
 const ExpenseReducer = (state, action) => {
   switch (action.type) {
     case "ADD_EXPENSE":
@@ -26,7 +38,7 @@ const ExpenseReducer = (state, action) => {
   }
 };
 
-const initialState = {
+let initialState = {
   budget: 2000,
   expenses: [
     { id: 1, name: "Cloths", cost: 1000 },
@@ -63,6 +75,7 @@ const languageCollection = {
     inputItem: "Artikelname",
   },
 };
+
 const ExpenseContext = createContext();
 
 export const ExpenseContextProvider = ({ children }) => {

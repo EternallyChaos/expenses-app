@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useExpenseContext } from "./AppContext";
-
 
 export default function MoneyWrapper() {
   const [newbudget, setNewBudget] = useState();
+  const [changeLang, setChangeLang] = useState("en");
   const { budget } = useExpenseContext();
   const { expenses } = useExpenseContext();
   const { dispatch } = useExpenseContext();
@@ -28,6 +28,14 @@ export default function MoneyWrapper() {
     });
   };
 
+  useEffect(() => {
+    lang.setLanguageSelected(changeLang);
+  }, [changeLang]);
+
+  const changeLanguage = (e) => {
+    setChangeLang(e.target.value);
+  };
+
   const totaleExpenses = expenses.reduce((total, item) => {
     return (total += item.cost);
   }, 0);
@@ -36,13 +44,13 @@ export default function MoneyWrapper() {
     <div className="flex flex-col gap-5 bg-gray-200 p-3 rounded">
       <form className="form-control">
         <div>
-          <select className="p-1 mb-1 bg-gray-400 rounded" name="lang">
-            <option onClick={() => lang.setLanguageSelected("en")} value="En">
-              En
-            </option>
-            <option onClick={() => lang.setLanguageSelected("de")} value="De">
-              De
-            </option>
+          <select
+            onChange={changeLanguage}
+            className="p-1 mb-1 bg-gray-400 rounded"
+            name="lang"
+          >
+            <option value="en">En</option>
+            <option value="de">De</option>
           </select>
         </div>
       </form>
