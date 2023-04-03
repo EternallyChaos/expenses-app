@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
 
                 <BsFillMoonStarsFill
                   onClick={() => setDarkMode(!darkmode)}
-                  className="curson-pointer text-2xl"
+                  className="curson-pointer text-2xl dark:fill-gray-300"
                 />
               </div>
               <div>{children}</div>
