@@ -46,11 +46,11 @@ function FileUploadSimple() {
     }
   };
 
-  const browseClick = () => {
+  const handleBrowseClick = () => {
     inputRef.current.click();
   };
 
-  const handleClear = () => {
+  const handleFileClear = () => {
     setFileList((inputRef.current.files = null));
   };
 
@@ -80,7 +80,7 @@ function FileUploadSimple() {
       <div className="flex gap-4">
         <button
           className="bg-gray-300 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
-          onClick={browseClick}
+          onClick={handleBrowseClick}
         >
           Browse Files
         </button>
@@ -92,7 +92,7 @@ function FileUploadSimple() {
         </button>
         <button
           className="bg-gray-300 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r"
-          onClick={handleClear}
+          onClick={handleFileClear}
         >
           Clear
         </button>
