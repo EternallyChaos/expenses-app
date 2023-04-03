@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Montserrat } from "next/font/google";
 import { Poppins } from "next/font/google";
 import { Roboto } from "next/font/google";
-
+import Link from "next/link";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 
 const montserrat = Montserrat({
@@ -35,9 +35,13 @@ export default function RootLayout({ children }) {
           <div className="flex justify-center items-start h-screen w-screen dark:bg-[#111213] bg-gray-100">
             <div className="mx-2 p-2 flex flex-col gap-5 w-xl md:max-w-lg">
               <div className="flex justify-around items-center gap-10">
-                <h1 className=" text-3xl text-center text-gray-700 dark:text-gray-300 ">
-                  Projects Section
-                </h1>
+                <Link
+                  className="text-3xl text-center text-gray-700 dark:text-gray-300"
+                  href={"/"}
+                >
+                  Project Section
+                </Link>
+
                 <BsFillMoonStarsFill
                   onClick={() => setDarkMode(!darkmode)}
                   className="curson-pointer text-2xl"
